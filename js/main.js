@@ -183,16 +183,22 @@ const contact = {
         phoneField.className = "list-text";
         e.target.className = "listBtn";
     },
+    //Funktion som tar bort alla kontakter i listan
     deleteList: function(e){
-        let userInput = prompt("Är du säker på att du vill ta bort alla kontakter? (ja/nej)").toLowerCase();
-        if(userInput === "ja"){
-            const contactItem = document.querySelectorAll("#contact-list li");
-            contactItem.forEach((item) => item.remove());
-            e.target.removeAttribute("style");
-            this.testContactBtn.style.display = "inline-block";
-            this.errorMessage.removeAttribute("style");
-                
-        }
+        const deleteList = e.target.value === "Ja";
+        if(deleteList){
+            this.contactList.innerHTML = "";
+            this.deleteListBtn.removeAttribute("style");
+        } 
+        
+        e.target.parentElement.removeAttribute("style");
+        this.errorMessage.removeAttribute("style");
+    },
+    //Funktion som visar varning när användaren försöker ta bort hela listan 
+    showDeleteListWarning: function(){
+        const deleteListWarning = document.getElementById("delete-confirmation-message");
+        
+        deleteListWarning.style.display = "block";
     },
 
     //Funktion som lägger till 16st testkontakter i listan
@@ -232,8 +238,6 @@ const contact = {
             
             this.errorMessage.removeAttribute("style");
             this.contactForm.reset();
-
-            /* this.testContactBtn.style.display = "none"; */
 
         }    
         if(this.deleteListBtn.style.display === ""){

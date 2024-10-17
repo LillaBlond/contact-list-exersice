@@ -29,12 +29,12 @@
         </div>
         <div id="delete-confirmation-message">
             <p>Du håller på att ta bort alla kontakter i listan. <br><br> Vill du fortsätta?</p>
-            <input class="confirmation-btn" type="button" value="Ja">
-            <input class="confirmation-btn" type="button" value="Nej">
+            <input class="confirmation-btn" type="button" value="Ja" onclick="contact.deleteList(event)" >
+            <input class="confirmation-btn" type="button" value="Nej" onclick="contact.deleteList(event)">
         </div>
         <div id="bottom-container">
             <input type="button" id="test-contacts-btn" value="Lägg till testkontakter" onclick="contact.addTestContacts(event)">
-            <input type="button" id="delete-list-btn" value="Radera lista" onclick="contact.deleteList(event)">
+            <input type="button" id="delete-list-btn" value="Radera lista" onclick="contact.showDeleteListWarning(event)">
         </div>
     </div>
     
