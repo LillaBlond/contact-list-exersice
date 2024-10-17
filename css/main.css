@@ -80,7 +80,7 @@ h3{
 }
 
 p{
-    color: white;
+    color: rgb(255, 0, 0);
     text-align: center;
 }
 
@@ -148,6 +148,7 @@ p{
     color: red;
     font-size: 16px;
     margin-top: 10px;
+    text-align: left;
 }
 
 .list-field-error-message{
@@ -236,9 +237,10 @@ input[type=button]:hover{
 .confirmation-btn{
     margin: 40px 20px 20px;
     width: 100px;
+    background-color: rgb(192, 192, 192);
 }
 
 .confirmation-btn:hover{
-    background-color: grey;
+    background-color: white;
     color: black;
 }
