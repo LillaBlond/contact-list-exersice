@@ -1,0 +1,244 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*------------Page background---------------*/
+/*---------------------------------------------------*/
+
+body{
+  background-image: radial-gradient(#021825, black);
+  min-height: 100vh;
+  padding-top:5%;
+}
+
+/*---------------Main input section styles*/
+/*---------------------------------------------------*/
+
+#main-container{
+    display: flex;
+    row-gap: 20px;
+    margin: auto;
+    padding: 20px;
+    min-width: 600px;
+    max-height: 85%;
+    width: fit-content;
+    flex-flow: column nowrap;
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: 2px 6px 4px black;
+    border-radius: 10px;
+}
+
+#bottom-container{
+    position: relative;
+}
+
+/*---------------Contact list styling---------------------*/
+/*---------------------------------------------------*/
+
+#contact-list{
+    min-height: 100px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid lightgrey;
+    max-height: 50vh;
+    overflow-y: auto;
+    background-color: rgba(0,0,0, 0.6);
+    padding-right: 10px;
+}
+
+li{
+    list-style: none;
+    margin: 10px 0;
+}
+
+
+/*------------------Text styles-----------------------*/
+/*---------------------------------------------------*/
+h1{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    align-self: center;
+    border-radius: 10px;
+}
+h2{
+    color: #146752;
+    font-size: 18px;
+    margin: 10px 5px;
+
+}
+
+h3{
+    display: inline-block;
+    color: #146752;
+    font-size: 16px;
+    width: 181px;
+    padding: 5px;
+}
+
+p{
+    color: white;
+    text-align: center;
+}
+
+#total{
+    text-align: right;
+}
+
+#contact-heading{
+    border-bottom: 2px solid lightgoldenrodyellow;
+    padding-bottom: 5px;
+}
+
+
+/*---------------Input field styles------------------*/
+/*---------------------------------------------------*/
+#main-input-section input[type=text]{
+    background-color: lightgrey;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px 10px 5px 5px;
+}
+
+#main-input-section input[type=text]:focus-visible,
+#contact-list input[type=text]:focus-visible{
+    box-shadow: inset 0 0 4px 1px rgb(185, 201, 103);
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    inset: 0;
+    color:lightgray;
+}
+
+.list-text, 
+.list-text-highlight, 
+.list-field-error-message,
+#main-input-section input[type=text]:focus-visible,
+#contact-list input[type=text]:focus-visible{
+    border: none;
+    padding: 5px 10px;
+    margin: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+.list-text{
+    background-color: transparent;
+    color: #497f71;
+}
+
+
+.list-text-highlight{
+    color: #274e44;
+    background-color: lightgray;
+}
+
+.highlight{
+    border-radius: 5px;
+    color: lightgoldenrodyellow;
+    box-shadow: inset 0 0 4px 1px lightgoldenrodyellow;
+}
+
+/*---------------------Error message styling*/
+
+#error-message{
+    display: none;
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.list-field-error-message{
+    background-color: rgb(255, 0, 0);
+}
+
+.error-message::placeholder, .list-field-error-message::placeholder{
+    color: rgb(255, 255, 255);
+}
+
+
+/*---------------Button styles------------------*/
+/*---------------------------------------------------*/
+
+input[type=button]{
+    font-weight: bold;
+    border: none;
+    transition: 0.5s;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align:center;
+}
+
+input[type=button]:hover{
+    cursor: pointer;
+    
+}
+
+.listBtn{
+    color:grey;
+    background-color: transparent;
+    margin: 0 10px;
+    width: 65px;
+}
+
+.listBtn:hover{
+    color: lightgoldenrodyellow;
+}
+
+.listBtn-highlight{
+    color:white;
+    background-color: transparent;
+    margin: 0 10px;
+    width: 65px
+}
+
+#addBtn{
+    background-color: #00b390;
+    color:black;
+}
+
+#addBtn:hover, #test-contacts-btn:hover{
+    background-color:#b9c967;
+}
+
+#delete-list-btn{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 170px;
+    background-color: #00b390;
+     color:black;
+}
+
+#delete-list-btn:hover{
+    background-color: #146752;
+}
+
+#test-contacts-btn{
+    margin-right: auto;
+    background-color: #839737;
+    color: black;
+}
+
+/*----------------------Delet confirmation message styling-------------*/
+/*----------------------------------------------------------------------------*/
+
+#delete-confirmation-message{
+    display: none;
+    border: 2px solid white;
+    text-align: center;
+    padding: 10px;
+}
+
+.confirmation-btn{
+    margin: 40px 20px 20px;
+    width: 100px;
+}
+
+.confirmation-btn:hover{
+    background-color: grey;
+    color: black;
+}
