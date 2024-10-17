@@ -188,21 +188,48 @@ const contact = {
     },
     //Funktion som tar bort alla kontakter i listan
     deleteList: function(e){
+        const button1 = document.getElementById("delete-confirmation-message").children[1];
+        const button2 = document.getElementById("delete-confirmation-message").children[2];
         const deleteList = e.target.value === "Ja";
         if(deleteList){
             this.contactList.innerHTML = "";
-            this.showDeleteListButton();
         } 
+
+        let buttons = document.querySelectorAll("input[type=button]");
+        buttons.forEach((button) => 
+            {
+                if(button != button1 && button != button2){
+                    button.removeAttribute("disabled");
+                    button.removeAttribute("style");
+                }
+            });
         
         e.target.parentElement.removeAttribute("style");
         this.errorMessage.removeAttribute("style");
+        this.showDeleteListButton();
     },
     //Funktion som visar varning när användaren försöker ta bort hela listan 
     showDeleteListWarning: function(){
         const deleteListWarning = document.getElementById("delete-confirmation-message");
         deleteListWarning.style.display = "block";
-    /*     this.testContactBtn.style.display = "none";
-        this.deleteListBtn.style.display = "none" */
+        const button1 = document.getElementById("delete-confirmation-message").children[1];
+        const button2 = document.getElementById("delete-confirmation-message").children[2];
+      
+        //Hide all other buttons except in the warning message
+        let buttons = document.querySelectorAll("input[type=button]");
+        buttons.forEach((button) => 
+            {
+                if(button != button1 && button != button2){
+                    button.setAttribute("disabled", "");
+                }
+            });
+
+            buttons.forEach((button) =>{
+                if(button.disabled === true){
+                    button.style.display = "none";
+                }
+            })
+        
     },
 
     //Funktion som lägger till 16st testkontakter i listan
