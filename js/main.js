@@ -12,15 +12,17 @@ const contact = {
     tempNameSave: "",
     tempPhoneSave:"",
 
-    //Funktoin som kollar om det finns några kontakter i listan.
-    contactsExist: function(){
-        if(this.contactList.children.length > 0) {
+    //Funktion som kollar om knappen Radera lista ska visas.
+    showDeleteListButton: function(){
+
+        if( countTotalContacts() > 0) {
                 this.deleteListBtn.style.display = "inline-block";
             }  else {
                 this.deleteListBtn.removeAttribute("style");
-                this.testContactBtn.style.display = "inline-block";
+  /*               this.testContactBtn.style.display = "inline-block"; */
             }
     },
+
     addContact: function(e){
         let nameInput = e.target.parentElement.children[0];
         let phoneInput = e.target.parentElement.children[1];
@@ -58,7 +60,7 @@ const contact = {
            this.errorMessage.removeAttribute("style");
            this.contactForm.reset();
 
-            this.contactsExist();
+            this.showDeleteListButton();
         } else {
             this.errorMessage.style.display = "block";
         }
@@ -66,7 +68,7 @@ const contact = {
     deleteContact: function(e){
         e.target.parentElement.remove();
         this.errorMessage.removeAttribute("style");
-        this.contactsExist();
+        this.showDeleteListButton();
     },
     editContact: function(e){
         //save old name and number
@@ -129,7 +131,7 @@ const contact = {
                 });
 
                 //add delete button separate as default is not displayed
-                this.contactsExist();
+                this.showDeleteListButton();
 
                 //change cancel button to remove button with functionality
                 e.target.nextElementSibling.value = "Ta bort";
@@ -175,20 +177,21 @@ const contact = {
                 });
         
         //add back delete list button
-        this.contactsExist();
+        this.showDeleteListButton();
 
-        //remove highlighted from elements
+        //remove highlighted form elements
         e.target.parentElement.removeAttribute("class");
         nameField.className = "list-text";
         phoneField.className = "list-text";
         e.target.className = "listBtn";
+        e.target.previousElementSibling.className = "listBtn";
     },
     //Funktion som tar bort alla kontakter i listan
     deleteList: function(e){
         const deleteList = e.target.value === "Ja";
         if(deleteList){
             this.contactList.innerHTML = "";
-            this.deleteListBtn.removeAttribute("style");
+            this.showDeleteListButton();
         } 
         
         e.target.parentElement.removeAttribute("style");
@@ -197,8 +200,9 @@ const contact = {
     //Funktion som visar varning när användaren försöker ta bort hela listan 
     showDeleteListWarning: function(){
         const deleteListWarning = document.getElementById("delete-confirmation-message");
-        
         deleteListWarning.style.display = "block";
+    /*     this.testContactBtn.style.display = "none";
+        this.deleteListBtn.style.display = "none" */
     },
 
     //Funktion som lägger till 16st testkontakter i listan
@@ -238,6 +242,7 @@ const contact = {
             
             this.errorMessage.removeAttribute("style");
             this.contactForm.reset();
+            this.showDeleteListButton();
 
         }    
         if(this.deleteListBtn.style.display === ""){
@@ -286,4 +291,18 @@ const inputField = {
     }
 }
 
+//Function that calculate total contacts in the list and print it in total contact div.
+const countTotalContacts = function(){
+    const totalContactField = document.getElementById("contact-count");
+    const contactList = document.getElementById("contact-list");
+    const contactCount = contactList.children.length;
 
+    totalContactField.innerText = `Antal kontakter: ${contactCount}`;
+    return contactCount;
+}
+
+/* const noContactsMessage = function(){
+    if(countTotalContacts > 0)
+}
+
+ */
