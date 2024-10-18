@@ -9,17 +9,17 @@
 /*---------------------------------------------------*/
 
 body{
-  background-image: radial-gradient(#021825, black);
+  background-image: radial-gradient(#1d5351, black);
   min-height: 100vh;
-  padding-top:5%;
+  padding-top: 40px;
 }
 
-/*---------------Main input section styles*/
+/*---------------Main input section styles-----------*/
 /*---------------------------------------------------*/
 
 #main-container{
     display: flex;
-    row-gap: 20px;
+    row-gap: 40px;
     margin: auto;
     padding: 20px;
     min-width: 600px;
@@ -28,10 +28,6 @@ body{
     background-color: rgba(0,0,0,0.7);
     box-shadow: 2px 6px 4px black;
     border-radius: 10px;
-}
-
-#bottom-container{
-    position: relative;
 }
 
 /*---------------Contact list styling---------------------*/
@@ -61,22 +57,21 @@ h1{
     padding: 10px;
     text-align: center;
     color: white;
-    align-self: center;
     border-radius: 10px;
 }
 h2{
-    color: #146752;
+    color: #3c8d78;
     font-size: 18px;
-    margin: 10px 5px;
+    padding: 10px 5px;
 
 }
 
 h3{
     display: inline-block;
-    color: #146752;
+    color: #3c8d78;
     font-size: 16px;
     width: 181px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 p{
@@ -87,12 +82,6 @@ p{
 #contact-count{
     text-align: right;
 }
-
-#contact-heading{
-    border-bottom: 2px solid lightgoldenrodyellow;
-    padding-bottom: 5px;
-}
-
 
 /*---------------Input field styles------------------*/
 /*---------------------------------------------------*/
@@ -145,18 +134,19 @@ p{
 
 #error-message{
     display: none;
-    color: red;
     font-size: 16px;
     margin-top: 10px;
+    padding-left: 5px;
     text-align: left;
 }
 
 .list-field-error-message{
-    background-color: rgb(255, 0, 0);
+    background-color: transparent;
+    box-shadow: inset 0 0 4px 1px rgb(255, 0, 0);
 }
 
 .error-message::placeholder, .list-field-error-message::placeholder{
-    color: rgb(255, 255, 255);
+    color: red;
 }
 
 
@@ -170,6 +160,7 @@ input[type=button]{
     padding: 5px 10px;
     border-radius: 10px;
     text-align:center;
+    
 }
 
 input[type=button]:hover{
@@ -184,12 +175,12 @@ input[type=button]:hover{
     width: 65px;
 }
 
-.listBtn:hover{
+.listBtn-highlight:hover, .listBtn:hover{
     color: lightgoldenrodyellow;
 }
 
 .listBtn-highlight{
-    color:white;
+    color:#cbcbcb;
     background-color: transparent;
     margin: 0 10px;
     width: 65px
@@ -198,9 +189,12 @@ input[type=button]:hover{
 #addBtn{
     background-color: #00b390;
     color:black;
+    font-size: 16px;
 }
 
-#addBtn:hover, #test-contacts-btn:hover{
+#addBtn:hover, 
+#test-contacts-btn:hover, 
+#delete-list-btn:hover:hover{
     background-color:#b9c967;
 }
 
@@ -212,23 +206,24 @@ input[type=button]:hover{
     width: 170px;
     background-color: #00b390;
      color:black;
-}
-
-#delete-list-btn:hover{
-    background-color: #146752;
+     font-size: 16px;
 }
 
 #test-contacts-btn{
     margin-right: auto;
     background-color: #839737;
     color: black;
+    font-size: 16px;
 }
 
-/*----------------------Delet confirmation message styling-------------*/
+/*----------------------Delete confirmation message styling-------------*/
 /*----------------------------------------------------------------------------*/
 
 #delete-confirmation-message{
     display: none;
+    position: relative;
+    bottom: 40vh;
+    background-color: black;
     border: 2px solid white;
     text-align: center;
     padding: 10px;
@@ -243,4 +238,8 @@ input[type=button]:hover{
 .confirmation-btn:hover{
     background-color: white;
     color: black;
+}
+
+#bottom-container{
+    position: relative;
 }
