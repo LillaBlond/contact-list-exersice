@@ -18,6 +18,7 @@ body{
 /*---------------------------------------------------*/
 
 #main-container{
+    position: relative;
     display: flex;
     row-gap: 40px;
     margin: auto;
@@ -34,7 +35,7 @@ body{
 /*---------------------------------------------------*/
 
 #contact-list{
-    min-height: 100px;
+    min-height: 200px;
     border-top: 1px solid grey;
     border-bottom: 1px solid lightgrey;
     max-height: 40vh;
@@ -221,8 +222,9 @@ input[type=button]:hover{
 
 #delete-confirmation-message{
     display: none;
-    position: relative;
-    bottom: 40vh;
+    position: absolute;
+    bottom: 150px;
+    left:120px;
     background-color: black;
     border: 2px solid white;
     text-align: center;

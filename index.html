@@ -25,11 +25,11 @@
             <h3 id="contact-count">Antal kontakter: 0</h3>
             <ul id="contact-list">
             </ul>
-        </div>
-        <div id="delete-confirmation-message">
-            <p>Du håller på att ta bort alla kontakter i listan. <br><br> Vill du fortsätta?</p>
-            <input class="confirmation-btn" type="button" value="Ja" onclick="contact.deleteList(event)" >
-            <input class="confirmation-btn" type="button" value="Nej" onclick="contact.deleteList(event)">
+            <div id="delete-confirmation-message">
+                <p>Du håller på att ta bort alla kontakter i listan. <br><br> Vill du fortsätta?</p>
+                <input class="confirmation-btn" type="button" value="Ta bort" onclick="contact.deleteList(event)" >
+                <input class="confirmation-btn" type="button" value="Avbryt" onclick="contact.deleteList(event)">
+            </div>
         </div>
         <div id="bottom-container">
             <input type="button" id="test-contacts-btn" value="Lägg till testkontakter" onclick="contact.addTestContacts(event)">

@@ -1,7 +1,6 @@
 "use strict"
 
 
-
 //An object that hold functions related to add, remove and edit contacts
 const contact = {
     errorMessage: document.getElementById("error-message"),
@@ -107,9 +106,7 @@ const contact = {
         //disable the main input fields
         EnableDisableField(this.mainNameField);
         EnableDisableField(this.mainPhoneField);
-        /* this.mainNameField.setAttribute("disabled","");
-        this.mainPhoneField.setAttribute("disabled","");
- */
+
         //Hide all other buttons list items that is not being edited
         let buttons = document.querySelectorAll("input[type=button]");
             buttons.forEach((button) => 
@@ -206,7 +203,7 @@ const contact = {
     deleteList: function(e){
         const button1 = document.getElementById("delete-confirmation-message").children[1];
         const button2 = document.getElementById("delete-confirmation-message").children[2];
-        const deleteList = e.target.value === "Ja";
+        const deleteList = e.target.value === "Ta bort";
         if(deleteList){
             this.contactList.innerHTML = "";
         } 
@@ -323,22 +320,21 @@ const contact = {
         const phoneField = e.target.parentElement.children[1];
     
         if(!contact.validateInput(nameField)){
-            nameField.className = "list-field-error-message";
-            nameField.placeholder = "Detta fält får ej vara tomt";
-            nameField.addEventListener("click", () => {
-                this.activeField(nameField,"Namn");
-            });
+            showErrorMessage2(nameField, "Namn");
         }
         if(!contact.validateInput(phoneField)){
-            phoneField.className = "list-field-error-message";
-            phoneField.placeholder = "Detta fält får ej vara tomt";
-            phoneField.addEventListener("click", () => {
-                this.activeField(phoneField, "Telefon")
-            });
+            showErrorMessage2(phoneField, "Telefon");
         }
     }
 };
 
+const showErrorMessage2 = (field,placeholder) => {
+    field.className = "list-field-error-message";
+    field.placeholder = "Detta fält får ej vara tomt";
+    field.addEventListener("click", () => {
+        contact.activeField(field,placeholder);
+    });
+}
 
 //Function that calculate total contacts in the list, show on screen and return total count
 const countTotalContacts = function(){
@@ -351,7 +347,6 @@ const countTotalContacts = function(){
 }
 
 //A function that set multiple attributes to the same element.
-//Takes the element and an object with the attributes and values to set as arguments
 const setAttributes = function(element, attributes){
     for(const [key, value] of Object.entries(attributes)){
         element.setAttribute(key,value);
