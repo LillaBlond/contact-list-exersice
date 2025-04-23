@@ -13,8 +13,8 @@
         <section id="main-input-section">
             <h2>Lägg till ny kontakt</h2>
             <form id="contact-form">
-                <input type="text" id="name" placeholder="Namn">
-                <input type="text" id="phone" placeholder="Telefon">
+                <input type="text" id="name" maxlength="40" placeholder="Namn">
+                <input type="text" id="phone" maxlength="18" placeholder="Telefon">
                 <input type="button" id="addBtn" value="Lägg till" onclick="contact.addContact(event)">
                 <p id="error-message">Ett eller flera fält är tomt. Kan ej spara kontakt.</p>
             </form>

@@ -35,6 +35,7 @@ const contact = {
             setAttributes(contact,{
                 "class" : "list-text", 
                 "type": "text", 
+                "maxlength": 40,
                 "value": nameInput.value, 
                 "disabled": ""
             })
@@ -42,6 +43,7 @@ const contact = {
             setAttributes(phone,{
                 "class" : "list-text", 
                 "type": "text", 
+                "maxlength": 18,
                 "value": phoneInput.value, 
                 "disabled": ""
             })
@@ -263,6 +265,7 @@ const contact = {
             setAttributes(contact,{
                 "class" : "list-text", 
                 "type": "text", 
+                "maxlength": 40,
                 "value": names[i], 
                 "disabled": ""
             })
@@ -270,6 +273,7 @@ const contact = {
             setAttributes(phone,{
                 "class" : "list-text", 
                 "type": "text", 
+                "maxlength": 18,
                 "value": numbers[i], 
                 "disabled": ""
             })
